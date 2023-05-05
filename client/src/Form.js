@@ -56,12 +56,12 @@ const Form = () => {
     const [blood, setBlood] = useState("");
     const [nationality, setNationality] = useState("");
 
-    const onSubmitHandler = (data) => {
-        alert(JSON.stringify(data));
-        navigate('/home');
-    };
+    // const onSubmitHandler = (data) => {
+    //     alert(JSON.stringify(data));
+    //     navigate('/home');
+    // };
 
-    const submit = () => {
+    const onSubmitHandler = () => {
         Axios.post("http://localhost:5000/test", {
             uname: uname,
             age: age,
@@ -84,6 +84,7 @@ const Form = () => {
             blood: blood,
             nationality: nationality,
         }).then((res) => {
+            navigate('/home');
             console.log(res);
         });
     };
@@ -258,7 +259,7 @@ const Form = () => {
                         </Col>
                     </Row>
                 </Container>
-                <button type="submit" onClick={submit}>SUBMIT <br /> ⌘S</button>
+                <button type="submit">SUBMIT <br /> ⌘S</button>
                 <input type="reset" value="Reset Form (ESC)" />
                 <br></br>
                 <br></br>
